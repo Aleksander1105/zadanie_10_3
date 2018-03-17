@@ -1,29 +1,28 @@
 $(function(){
 
-	let moveSlide;
+	var moveSlide = setInterval(moveCarousel, 3000);
+	var carouselList = $("#carousel ul");
 	
 	function moveCarousel() {
-		
-		var carouselList = $("#carousel ul");
 
-		moveSlide = setInterval(function() {
-			carouselList.animate({'marginLeft':-400}, 500, function(){
+		carouselList.animate({'marginLeft':-400}, 500, function(){
 				var firstItem = carouselList.find("li:first");
 				var lastItem = carouselList.find("li:last");
 				lastItem.after(firstItem);
 				carouselList.css({marginLeft:0});
-			}); 
-		}, 3000);
+			});
 	}
 
 	function stop() {
-    	clearInterval(moveCarousel);
+    	clearInterval(moveSlide);
   	}
     
     moveCarousel();
 
-    $("#carousel").mouseenter(stop);
-  	$("#carousel").mouseleave(moveSlide);
+    $("#carousel").on('mouseenter', stop);
+  	$("#carousel").on('mouseleave', function() {
+  		moveSlide = setInterval(moveCarousel, 3000);
+  	});
 
 
     $('#btn-right').on('click', function() {
