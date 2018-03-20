@@ -1,0 +1,38 @@
+
+#carousel {
+	margin: 0 auto;
+	width: 400px;
+	height: 200px;
+	border: 2px solid gold;
+	overflow: hidden;
+	position: relative;
+}
+
+ul {
+	
+	width: 2000px;
+}
+
+li {
+	width: 400px;
+	list-style-type: none;
+	float: left;
+}
+
+button {
+	background: none;
+	border: none;
+	color: #fff;
+	font-size: 30px;
+}
+
+#btn-left {
+	position: absolute;
+	top: 80px;
+}
+
+#btn-right {
+	position: absolute;
+	top: 80px;
+	left: 362px;
+}
